@@ -10,11 +10,31 @@ A LaTeX-inspired minimalist theme that mimics the style of academic papers.
 - **Tables:** Booktabs-style (LaTeX three-line tables).
 - **Vibe:** Serious, clean, academic paper feel.
 
+![Academia Preview](assets/academic.PNG)
+
 ### 2. Clarity
 A modern, light theme with an elevated card style for code blocks and vibrant syntax highlighting.
 - **Typography:** Sans-serif fonts (`Inter`, `Noto Sans SC`) optimized for comfortable on-screen reading.
 - **Code Blocks:** Light elevated-card style with vibrant, highly readable syntax highlighting.
 - **Vibe:** Modern IDE, clean interface, highly legible.
+
+![Clarity Preview](assets/clarity.PNG)
+
+### 3. Quantum Dark
+A deep space / neon dark mode variant optimized for low-light coding and OLED screens.
+- **Typography:** Sans-serif fonts paired with JetBrains Mono.
+- **Syntax Highlighting:** High-contrast neon accents (Cyberpunk/Catppuccin Macchiato style) on a deep `#1e1e2e` background.
+- **Vibe:** Geeky, hacker, extremely easy on the eyes in the dark.
+
+![Quantum Dark Preview](assets/quantum-dark.PNG)
+
+### 4. Manuscript
+An academic retro style imitating theoretical physics manuscripts.
+- **Typography:** Pure serif aesthetic (`Alegreya`, `Palatino Linotype`) for an old-school book feel.
+- **Colors:** Solarized Light / Sepia toned background (`#fdf6e3`) with deep brown ink text.
+- **Vibe:** Immersive, retro, reading a decades-old physics manuscript.
+
+![Manuscript Preview](assets/manuscript.PNG)
 
 ## Installation
 
