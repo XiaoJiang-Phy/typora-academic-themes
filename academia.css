@@ -1,0 +1,310 @@
+/*
+ * Academia Light — A LaTeX-inspired Typora Theme
+ * Modern minimalist academic style with cross-platform fonts.
+ * Optimized for documents with LaTeX formulas, code, and CJK text.
+ */
+
+/* ── Font Imports (Google Fonts) ── */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+/* ── Design Tokens ── */
+:root {
+    --body-font: "Source Serif 4", "Noto Serif SC", "Source Han Serif SC",
+                 "Songti SC", "SimSun", "Noto Serif CJK SC", Georgia, serif;
+    --mono-font: "JetBrains Mono", "Fira Code", "Cascadia Code",
+                 "Consolas", "Monaco", "Menlo", monospace;
+    --monospace: var(--mono-font);
+
+    --bg-color: #ffffff;
+    --text-color: #212121;
+    --heading-color: #1a1a1a;
+    --link-color: #1a56db;
+    --link-hover-color: #1e40af;
+    --md-char-color: #b0b0b0;
+    --meta-content-color: #6366f1;
+    --primary-color: #1a56db;
+    --primary-btn-border-color: #1e40af;
+    --primary-btn-text-color: #fff;
+    --heading-char-color: #b0b0b0;
+
+    --side-bar-bg-color: #f7f7f5;
+    --active-file-bg-color: #eceae6;
+    --active-file-text-color: #1a1a1a;
+    --active-file-border-color: #1a56db;
+    --control-text-color: #666;
+    --item-hover-bg-color: #eceae6;
+    --item-hover-text-color: #1a1a1a;
+
+    --code-bg: #f5f5f0;
+    --code-border: #e5e5dc;
+    --blockquote-bg: #f9f9f6;
+    --blockquote-border: #c0bfb8;
+}
+
+/* ── Base ── */
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    line-height: 1.8;
+    background: var(--bg-color);
+    letter-spacing: 0.01em;
+}
+
+/* ── Content Area ── */
+#write {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px 30px 100px;
+}
+
+#write p {
+    margin: 0 0 0.8em;
+    text-align: justify;
+    word-break: break-word;
+}
+
+/* ── Headings ── */
+#write h1, #write h2, #write h3,
+#write h4, #write h5, #write h6 {
+    font-family: var(--body-font);
+    color: var(--heading-color);
+    font-weight: 700;
+    line-height: 1.35;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+}
+
+#write h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 1em;
+    padding-bottom: 0.4em;
+    border-bottom: 2.5px solid var(--heading-color);
+}
+
+#write h2 {
+    font-size: 1.5em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #d0d0c8;
+}
+
+#write h3 { font-size: 1.25em; }
+#write h4 { font-size: 1.1em; font-weight: 600; }
+#write h5 { font-size: 1em; font-weight: 600; font-style: italic; }
+#write h6 { font-size: 0.95em; font-weight: 600; color: #555; }
+
+/* ── Links ── */
+#write a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+}
+#write a:hover {
+    color: var(--link-hover-color);
+    border-bottom-color: var(--link-hover-color);
+}
+
+/* ── Strong & Emphasis ── */
+#write strong { font-weight: 700; color: var(--heading-color); }
+#write em { font-style: italic; }
+
+/* ── Inline Code ── */
+#write code, tt {
+    font-family: var(--mono-font);
+    font-size: 0.88em;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: #3c4858;
+}
+
+/* ── Code Blocks ── */
+.md-fences {
+    font-family: var(--mono-font);
+    font-size: 0.875em;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 1.2em 0;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+.md-fences code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: 1em;
+}
+
+/* ── Blockquotes ── */
+#write blockquote {
+    margin: 1.2em 0;
+    padding: 12px 20px;
+    background: var(--blockquote-bg);
+    border-left: 4px solid var(--blockquote-border);
+    color: #4a4a4a;
+    font-style: italic;
+}
+#write blockquote p:last-child { margin-bottom: 0; }
+
+/* ── Lists ── */
+#write ul, #write ol {
+    margin: 0.6em 0;
+    padding-left: 2em;
+}
+#write li { margin: 0.3em 0; }
+
+/* ── Tables — Booktabs (LaTeX 三线表) ── */
+#write table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    border-top: 2.5px solid var(--heading-color);
+    border-bottom: 2.5px solid var(--heading-color);
+}
+#write thead {
+    border-bottom: 1.5px solid var(--heading-color);
+}
+#write th {
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 12px;
+    color: var(--heading-color);
+}
+#write td {
+    padding: 8px 12px;
+}
+#write tbody tr:not(:last-child) {
+    border-bottom: 0.5px solid #e0e0d8;
+}
+#write tbody tr:hover {
+    background: #f9f9f6;
+}
+
+/* ── Horizontal Rule ── */
+#write hr {
+    border: none;
+    border-top: 1px solid #d0d0c8;
+    margin: 2em 0;
+}
+
+/* ── Images ── */
+#write img {
+    max-width: 100%;
+    display: block;
+    margin: 1.5em auto;
+    border-radius: 2px;
+}
+
+/* ── Mathematics ── */
+.MathJax_Display, .md-math-block {
+    margin: 1.2em 0 !important;
+}
+
+/* ── Footnotes ── */
+sup.md-footnote {
+    font-size: 0.8em;
+    color: var(--link-color);
+}
+.footnotes-area {
+    font-size: 0.9em;
+    border-top: 1px solid #d0d0c8;
+    margin-top: 2em;
+    padding-top: 1em;
+    color: #555;
+}
+
+/* ── YAML Front Matter ── */
+pre.md-meta-block {
+    font-family: var(--mono-font);
+    font-size: 0.85em;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 2em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ── TOC ── */
+.md-toc {
+    font-size: 0.95em;
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    background: var(--blockquote-bg);
+    padding: 16px 20px;
+    margin: 1.5em 0;
+}
+.md-toc-h1 { font-weight: 700; }
+.md-toc-h2 { font-weight: 600; }
+
+/* ── Highlight ── */
+#write mark {
+    background: #fff3cd;
+    padding: 1px 4px;
+    border-radius: 2px;
+}
+
+/* ── Syntax Highlighting (CodeMirror) ── */
+.cm-s-inner .cm-comment  { color: #8b949e; font-style: italic; }
+.cm-s-inner .cm-keyword  { color: #b35900; }
+.cm-s-inner .cm-string   { color: #2e7d32; }
+.cm-s-inner .cm-number   { color: #1565c0; }
+.cm-s-inner .cm-variable { color: var(--text-color); }
+.cm-s-inner .cm-def      { color: #6a1b9a; }
+.cm-s-inner .cm-operator { color: #b35900; }
+.cm-s-inner .cm-attribute{ color: #1565c0; }
+.cm-s-inner .cm-tag      { color: #2e7d32; }
+.cm-s-inner .cm-bracket  { color: #616161; }
+.cm-s-inner .cm-meta     { color: #8b949e; }
+.cm-s-inner .cm-builtin  { color: #6a1b9a; }
+.cm-s-inner .cm-type     { color: #b35900; }
+.cm-s-inner .cm-atom     { color: #1565c0; }
+
+/* ── Sidebar ── */
+.sidebar-content { font-family: var(--body-font); }
+.file-node-content { line-height: 1.6; }
+
+/* ── Scrollbar (WebKit) ── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c8c8c0; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a0a098; }
+
+/* ── Selection ── */
+::selection { background: rgba(26, 86, 219, 0.15); }
+
+/* ── Focus Mode ── */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #c0c0b8 !important;
+}
+
+/* ── Source Code Mode ── */
+.cm-s-inner {
+    font-family: var(--mono-font);
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+/* ── Print / PDF Export ── */
+@media print {
+    html { font-size: 11pt; }
+    body { background: white; }
+    #write { max-width: 100%; padding: 0; }
+    #write h1 { page-break-before: always; }
+    #write h1:first-child { page-break-before: avoid; }
+    #write h1, #write h2, #write h3 { page-break-after: avoid; }
+    #write pre, #write table, #write img { page-break-inside: avoid; }
+}
