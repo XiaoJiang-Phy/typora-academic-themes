@@ -16,6 +16,18 @@ A modern, light theme with an elevated card style for code blocks and vibrant sy
 - **Code Blocks:** Light elevated-card style with vibrant, highly readable syntax highlighting.
 - **Vibe:** Modern IDE, clean interface, highly legible.
 
+### 3. Quantum Dark
+A deep space / neon dark mode variant optimized for low-light coding and OLED screens.
+- **Typography:** Sans-serif fonts paired with JetBrains Mono.
+- **Syntax Highlighting:** High-contrast neon accents (Cyberpunk/Catppuccin Macchiato style) on a deep `#1e1e2e` background.
+- **Vibe:** Geeky, hacker, extremely easy on the eyes in the dark.
+
+### 4. Manuscript
+An academic retro style imitating theoretical physics manuscripts.
+- **Typography:** Pure serif aesthetic (`Alegreya`, `Palatino Linotype`) for an old-school book feel.
+- **Colors:** Solarized Light / Sepia toned background (`#fdf6e3`) with deep brown ink text.
+- **Vibe:** Immersive, retro, reading a decades-old physics manuscript.
+
 ## Installation
 
 1. Open Typora and go to `Preferences` -> `Appearance` -> `Open Theme Folder`.

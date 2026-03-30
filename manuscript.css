@@ -1,0 +1,184 @@
+/*
+ * Manuscript — A Solerized Typora Theme
+ * Academic retro style imitating theoretical physics manuscripts.
+ * Extremely easy on the eyes for heavy reading of theoretical text.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+:root {
+    --body-font: "Alegreya", "Palatino Linotype", "Book Antiqua", Palatino, "Noto Serif SC", serif;
+    --mono-font: "JetBrains Mono", Consolas, monospace;
+    --monospace: var(--mono-font);
+
+    /* Solarized Light / Sepia background */
+    --bg-color: #fdf6e3;
+    --text-color: #4c463b; /* Deep sepia/brown */
+    --heading-color: #312b21;
+    --accent: #b58900; /* Solarized Yellow */
+    --accent-light: #eee8d5;
+    --link-color: #268bd2; /* Solarized Blue */
+    --link-hover-color: #2aa198; /* Solarized Cyan */
+
+    --md-char-color: #93a1a1;
+    --meta-content-color: var(--accent);
+    --primary-color: var(--accent);
+    --primary-btn-border-color: #cb4b16;
+    --primary-btn-text-color: #fff;
+    --heading-char-color: #93a1a1;
+
+    --side-bar-bg-color: #eee8d5;
+    --active-file-bg-color: #e6dfc8;
+    --active-file-text-color: #312b21;
+    --active-file-border-color: #cb4b16; /* Solarized Orange */
+    --control-text-color: #586e75;
+    --item-hover-bg-color: #e6dfc8;
+    --item-hover-text-color: #312b21;
+
+    --code-block-bg: #eee8d5;
+    --code-block-text: #586e75;
+    --inline-code-bg: #e6dfc8;
+    --inline-code-color: #dc322f; /* Red */
+    --inline-code-border: #daccb5;
+
+    --blockquote-bg: transparent;
+    --blockquote-border: #859900; /* Green */
+    --table-border: #cfc2a7;
+    --table-header-bg: #eee8d5;
+    --hr-color: #cfc2a7;
+}
+
+html {
+    font-size: 18px; /* Slightly larger base font for reading */
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    line-height: 1.8;
+    background: var(--bg-color);
+}
+
+#write {
+    max-width: 800px; /* Narrower width for manuscript feel */
+    margin: 0 auto;
+    padding: 60px 40px 120px;
+}
+
+#write p { margin: 0 0 1.2em; text-align: justify; word-break: break-word; }
+
+/* ── Headings ── */
+#write h1, #write h2, #write h3,
+#write h4, #write h5, #write h6 {
+    font-family: var(--body-font);
+    color: var(--heading-color);
+    font-weight: 700;
+    line-height: 1.35;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+}
+
+#write h1 {
+    font-size: 2.2em;
+    text-align: center;
+    color: #cb4b16; /* Orange */
+    margin-top: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 3px double #cfc2a7;
+}
+
+#write h2 {
+    font-size: 1.6em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #cfc2a7;
+}
+
+#write h3 { font-size: 1.3em; color: #b58900; }
+#write h4 { font-size: 1.1em; font-style: italic; font-weight: 600; }
+
+/* ── Links & Bold ── */
+#write a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+#write a:hover { color: var(--link-hover-color); }
+#write strong { font-weight: 700; color: #312b21; }
+#write em { font-style: italic; }
+
+/* ── Inline Code ── */
+#write code, tt {
+    font-family: var(--mono-font);
+    font-size: 0.8em;
+    background: var(--inline-code-bg);
+    border: 1px solid var(--inline-code-border);
+    border-radius: 2px;
+    padding: 1px 4px;
+    color: var(--inline-code-color);
+}
+
+/* ── Code Blocks (Solarized Light Style) ── */
+.md-fences {
+    font-family: var(--mono-font) !important;
+    font-size: 0.82em;
+    background: var(--code-block-bg) !important;
+    color: var(--code-block-text);
+    border: 1px solid #daccb5;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 1.5em 0;
+    line-height: 1.6;
+}
+.md-fences code { background: transparent !important; border: none !important; }
+.md-fences .ty-cm-lang-input { color: #93a1a1; }
+
+.cm-s-inner { color: #586e75 !important; }
+.cm-s-inner .cm-keyword { color: #859900 !important; font-weight: bold; } /* Green */
+.cm-s-inner .cm-string { color: #2aa198 !important; } /* Cyan */
+.cm-s-inner .cm-number { color: #d33682 !important; } /* Magenta */
+.cm-s-inner .cm-comment { color: #93a1a1 !important; font-style: italic; }
+.cm-s-inner .cm-def { color: #268bd2 !important; } /* Blue */
+.cm-s-inner .cm-variable { color: #657b83 !important; }
+.cm-s-inner .cm-operator { color: #cb4b16 !important; } /* Orange */
+
+/* ── Blockquotes ── */
+#write blockquote {
+    margin: 1.5em 0;
+    padding: 10px 20px;
+    font-style: italic;
+    color: #586e75;
+    border-left: 5px solid #b58900;
+}
+
+/* ── Tables ── */
+#write table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+    font-size: 0.9em;
+    border-top: 2px solid #312b21;
+    border-bottom: 2px solid #312b21;
+}
+#write th {
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #312b21;
+    color: #312b21;
+}
+#write td { padding: 10px 12px; border-bottom: 1px solid #cfc2a7; }
+
+/* ── Misc ── */
+#write hr { border: none; border-top: 1px dashed #cfc2a7; margin: 3em 0; text-align: center; }
+#write hr::after { content: "❦"; position: relative; top: -14px; background: var(--bg-color); padding: 0 10px; color: #b58900; font-size: 1.2em; }
+#write img { display: block; margin: 2em auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.1); }
+.MathJax_Display { margin: 1.5em 0 !important; color: #312b21; }
+
+/* Print / PDF Export */
+@media print {
+    body { background: white; }
+    #write { padding: 0; max-width: 100%; }
+}

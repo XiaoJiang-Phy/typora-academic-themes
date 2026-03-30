@@ -1,0 +1,194 @@
+/*
+ * Quantum Dark — A Deep Space Typora Theme
+ * Immersive dark mode with high-contrast neon accents for late-night research.
+ * Optimized for OLED screens and low-light environments.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
+
+:root {
+    --body-font: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --mono-font: "JetBrains Mono", "Fira Code", monospace;
+    --monospace: var(--mono-font);
+
+    /* Catppuccin Macchiato inspired base colors */
+    --bg-color: #1e1e2e;
+    --text-color: #cdd6f4;
+    --heading-color: #f38ba8; /* Neon red/pink for headings */
+    --accent: #89b4fa; /* Neon Blue */
+    --accent-light: rgba(137, 180, 250, 0.15);
+    --link-color: #89b4fa;
+    --link-hover-color: #b4befe;
+
+    --md-char-color: #6c7086;
+    --meta-content-color: var(--accent);
+    --primary-color: var(--accent);
+    --primary-btn-border-color: #89b4fa;
+    --primary-btn-text-color: #1e1e2e;
+    --heading-char-color: #585b70;
+
+    --side-bar-bg-color: #181825;
+    --active-file-bg-color: #313244;
+    --active-file-text-color: #cdd6f4;
+    --active-file-border-color: #89b4fa;
+    --control-text-color: #a6adc8;
+    --item-hover-bg-color: #313244;
+    --item-hover-text-color: #cdd6f4;
+
+    --code-block-bg: #11111b;
+    --code-block-text: #bac2de;
+    --inline-code-bg: #313244;
+    --inline-code-color: #eba0ac;
+    --inline-code-border: #45475a;
+
+    --blockquote-bg: rgba(137, 180, 250, 0.05);
+    --blockquote-border: #cba6f7; /* Lavender */
+    --table-border: #45475a;
+    --table-header-bg: #181825;
+    --hr-color: #45475a;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    line-height: 1.75;
+    background: var(--bg-color);
+}
+
+#write {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 50px 32px 120px;
+}
+
+#write p { margin: 0 0 1em; word-break: break-word; }
+
+/* ── Headings ── */
+#write h1, #write h2, #write h3,
+#write h4, #write h5, #write h6 {
+    font-family: var(--body-font);
+    color: var(--heading-color);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+}
+
+#write h1 {
+    font-size: 2em;
+    text-align: center;
+    color: #cba6f7; /* Neon Purple */
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #313244;
+}
+
+#write h2 {
+    font-size: 1.55em;
+    color: #89b4fa; /* Neon Blue */
+    padding-bottom: 0.35em;
+    border-bottom: 1px dashed #45475a;
+}
+
+#write h3 { font-size: 1.28em; color: #a6e3a1; /* Neon Green */ }
+#write h4 { font-size: 1.1em; color: #f9e2af; /* Neon Yellow */ font-weight: 600; }
+
+/* ── Links & Bold ── */
+#write a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(137, 180, 250, 0.4);
+    transition: all 0.2s ease;
+}
+#write a:hover { color: var(--link-hover-color); border-bottom-color: var(--link-hover-color); }
+#write strong { font-weight: 700; color: #f5c2e7; /* Pink */ }
+#write em { font-style: italic; color: #bac2de; }
+
+/* ── Inline Code ── */
+#write code, tt {
+    font-family: var(--mono-font);
+    font-size: 0.85em;
+    background: var(--inline-code-bg);
+    border: 1px solid var(--inline-code-border);
+    border-radius: 4px;
+    padding: 2px 6px;
+    color: var(--inline-code-color);
+}
+
+/* ── Code Blocks (Neon Space Style) ── */
+.md-fences {
+    font-family: var(--mono-font) !important;
+    font-size: 0.875em;
+    background: var(--code-block-bg) !important;
+    color: var(--code-block-text);
+    border: 1px solid #313244;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 1.4em 0;
+    line-height: 1.65;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+.md-fences code { background: transparent !important; border: none !important; }
+.md-fences .ty-cm-lang-input { color: #6c7086; }
+
+/* ── Syntax Highlighting (Neon / Cyber) ── */
+.cm-s-inner { color: #cdd6f4 !important; }
+.cm-s-inner .cm-keyword { color: #cba6f7 !important; font-weight: 600; } /* Purple */
+.cm-s-inner .cm-string { color: #a6e3a1 !important; } /* Green */
+.cm-s-inner .cm-number { color: #fab387 !important; } /* Peach */
+.cm-s-inner .cm-comment { color: #6c7086 !important; font-style: italic; } /* Muted */
+.cm-s-inner .cm-def { color: #89b4fa !important; } /* Blue */
+.cm-s-inner .cm-variable { color: #cdd6f4 !important; } 
+.cm-s-inner .cm-operator { color: #89dceb !important; } /* Sky */
+.cm-s-inner .cm-property { color: #f9e2af !important; } /* Yellow */
+.cm-s-inner .cm-builtin { color: #f38ba8 !important; } /* Red */
+
+/* ── Blockquotes ── */
+#write blockquote {
+    margin: 1.2em 0;
+    padding: 14px 20px;
+    background: var(--blockquote-bg);
+    border-left: 4px solid var(--blockquote-border);
+    color: #a6adc8;
+    border-radius: 0 4px 4px 0;
+}
+
+/* ── Tables ── */
+#write table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.93em;
+    background: #181825;
+    border-radius: 6px;
+    overflow: hidden;
+}
+#write th {
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+    background: #313244;
+    color: #cba6f7;
+    border-bottom: 2px solid #45475a;
+}
+#write td { padding: 10px 16px; border-bottom: 1px solid #313244; }
+#write tbody tr:hover { background: #1e1e2e; }
+
+/* ── Misc ── */
+#write hr { border: none; height: 1px; background: var(--hr-color); margin: 2.5em 0; }
+#write img { display: block; margin: 1.8em auto; border-radius: 6px; border: 1px solid #313244; }
+.MathJax_Display, .md-math-block { margin: 1.4em 0 !important; color: #89b4fa; }
+
+/* Scrollbar & Selection */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: #45475a; border-radius: 4px; }
+::selection { background: rgba(137, 180, 250, 0.3); }
+
+/* Sidebar */
+.sidebar-content { background: var(--side-bar-bg-color); color: var(--control-text-color); }
