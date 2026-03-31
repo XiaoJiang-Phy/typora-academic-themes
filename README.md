@@ -44,7 +44,7 @@ The easiest way to install these themes is via Typora's built-in theme folder ac
 
 1. Open **Typora**.
 2. Open **Preferences** (Settings):
-   - **macOS**: `Typora` -> `Preferences` (or `Cmd + ,`).
+   - **macOS**: `Typora` -> `Settings` (or `Cmd + ,`).
    - **Windows/Linux**: `File` -> `Preferences` (or `Ctrl + ,`).
 3. Navigate to the **Appearance** tab.
 4. Click the **Open Theme Folder** button.
