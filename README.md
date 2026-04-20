@@ -36,6 +36,13 @@ An academic retro style imitating theoretical physics manuscripts.
 
 ![Manuscript Preview](assets/manuscript.PNG)
 
+### 5. Vitae (Academic CV)
+A distinctive résumé/CV theme that combines scholarly gravitas with modern editorial design.
+- **Typography:** Elegant serif headings (`Cormorant Garamond`) paired with clean sans-serif body (`Inter`). Skills render as teal pill badges.
+- **Layout:** Compact line spacing (1.4–1.5) optimized for dense CV content and A4 PDF export.
+- **Signature:** Gradient accent rule under the name, teal-accented section dividers, and editorial-quality heading hierarchy (H1=Name, H2=Sections, H3=Institutions, H4=Positions, H5=Dates).
+- **Vibe:** Stands out instantly among hundreds of LaTeX-default CVs while maintaining academic professionalism.
+
 ## Installation
 
 The easiest way to install these themes is via Typora's built-in theme folder access.

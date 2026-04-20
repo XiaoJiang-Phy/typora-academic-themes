@@ -1,0 +1,564 @@
+/*
+ * Vitae — Academic CV/Résumé Theme for Typora
+ * ─────────────────────────────────────────────
+ * A distinctive, compact theme designed to make your CV stand out
+ * among stacks of academic applications. Combines scholarly gravitas
+ * with modern editorial design cues.
+ *
+ * Usage:  H1 = Name, H2 = Sections, H3 = Subsections,
+ *         Bold = Institutions/Titles, Italic = Dates/Locations
+ *
+ * Author: XiaoJiang-Phy
+ * License: MIT
+ */
+
+/* ── Font Imports ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+/* ── Design Tokens ── */
+:root {
+    /* ── Typography ── */
+    --heading-font: "Cormorant Garamond", "Noto Serif SC", "Source Han Serif SC",
+                    "Songti SC", "SimSun", Georgia, serif;
+    --body-font:    -apple-system, BlinkMacSystemFont, "Inter", "PingFang SC", 
+                    "Noto Sans SC", "Microsoft YaHei", "Noto Sans CJK SC", 
+                    "Helvetica Neue", sans-serif;
+    --mono-font:    "JetBrains Mono", "Fira Code", "Cascadia Code",
+                    "Consolas", monospace;
+    --monospace:    var(--mono-font);
+
+    /* ── Color System: Scholarly Teal ── */
+    --bg-color:       #ffffff;
+    --text-color:     #2d3436;
+    --heading-color:  #0c2340;          /* Deep navy — authoritative */
+    --accent:         #00695c;          /* Scholarly teal */
+    --accent-light:   #e0f2f1;
+    --accent-dark:    #004d40;
+    --accent-warm:    #bf360c;          /* Warm accent for contrast marks */
+
+    --link-color:     #00695c;
+    --link-hover-color: #004d40;
+
+    --md-char-color:  #bdbdbd;
+    --meta-content-color: var(--accent);
+    --primary-color:  var(--accent);
+    --primary-btn-border-color: var(--accent-dark);
+    --primary-btn-text-color: #fff;
+    --heading-char-color: #bdbdbd;
+
+    --side-bar-bg-color:       #fafafa;
+    --active-file-bg-color:    var(--accent-light);
+    --active-file-text-color:  var(--accent-dark);
+    --active-file-border-color:var(--accent);
+    --control-text-color:      #78909c;
+    --item-hover-bg-color:     #f5f5f5;
+    --item-hover-text-color:   var(--heading-color);
+
+    /* ── Component Colors ── */
+    --rule-gradient-start: var(--accent);
+    --rule-gradient-end:   var(--accent-warm);
+    --section-rule:        #cfd8dc;
+    --blockquote-bg:       #fafafa;
+    --blockquote-border:   var(--accent);
+    --code-bg:             #f5f5f5;
+    --code-border:         #e0e0e0;
+    --inline-code-bg:      var(--accent-light);
+    --inline-code-color:   var(--accent-dark);
+    --table-border:        #cfd8dc;
+    --table-header-bg:     #eceff1;
+}
+
+/* ══════════════════════════════════════════════
+   Base — Compact for CV density
+   ══════════════════════════════════════════════ */
+html {
+    font-size: 15px;                    /* Slightly smaller base for density */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    line-height: 1.5;                   /* Compact — CV appropriate */
+    background: var(--bg-color);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+}
+
+/* ── Content Area ── */
+#write {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 36px 40px 80px;
+}
+
+#write p {
+    margin: 0 0 0.35em;
+    text-align: justify;
+    word-break: break-word;
+}
+
+/* ══════════════════════════════════════════════
+   Headings — The Signature Look
+   ══════════════════════════════════════════════ */
+#write h1, #write h2, #write h3,
+#write h4, #write h5, #write h6 {
+    font-family: var(--heading-font);
+    color: var(--heading-color);
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+/*
+ * H1 = NAME — The hero element.
+ * Large, centered, tracked, with a signature gradient rule below.
+ */
+#write h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-top: 0.2em;
+    margin-bottom: 0.15em;
+    padding-bottom: 0.4em;
+    border-bottom: none;
+    position: relative;
+    color: var(--heading-color);
+}
+
+/* Gradient accent rule beneath the name */
+#write h1::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 3px;
+    margin: 0.35em auto 0;
+    background: linear-gradient(
+        90deg,
+        var(--rule-gradient-start) 0%,
+        var(--rule-gradient-end) 100%
+    );
+    border-radius: 2px;
+}
+
+/*
+ * H2 = Generic fallback (not used in current CV, but styled for safety).
+ */
+#write h2 {
+    font-size: 1.15em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-dark);
+    margin-top: 1.1em;
+    margin-bottom: 0.35em;
+    padding: 0.15em 0 0.2em 0;
+    border-bottom: 1.5px solid var(--section-rule);
+    position: relative;
+}
+#write h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1.5px;
+    width: 2.5em;
+    height: 2.5px;
+    background: var(--accent);
+    border-radius: 1px;
+}
+
+/*
+ * H3 = PRIMARY SECTION HEADERS (Education, Research Experience, Skills…)
+ * The main structural divider of the CV.
+ * Uppercase, tracked, bottom rule with teal accent bar.
+ */
+#write h3 {
+    font-size: 1.05em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-dark);
+    margin-top: 1.1em;
+    margin-bottom: 0.3em;
+    padding: 0.1em 0 0.2em 0;
+    border-bottom: 1.5px solid var(--section-rule);
+    border-left: none;
+    position: relative;
+}
+
+/* Teal accent bar at the leading edge of H3 section headers */
+#write h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1.5px;
+    width: 2.5em;
+    height: 2.5px;
+    background: var(--accent);
+    border-radius: 1px;
+}
+
+/*
+ * H4 = SUB-SECTION HEADERS (Software Development, Doctoral Research…)
+ * Subordinate to H3, with a left teal accent border.
+ */
+#write h4 {
+    font-family: var(--body-font);
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-top: 0.8em;
+    margin-bottom: 0.2em;
+    padding-left: 0.5em;
+    border-left: 3px solid var(--accent);
+}
+
+/*
+ * H5 = Minor headings (not used in current CV).
+ */
+#write h5 {
+    font-family: var(--body-font);
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #607d8b;
+    margin-top: 0.5em;
+    margin-bottom: 0.15em;
+}
+
+/*
+ * H6 = Fine print / Label (not used in current CV).
+ */
+#write h6 {
+    font-family: var(--body-font);
+    font-size: 0.78em;
+    font-weight: 600;
+    color: #90a4ae;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.4em;
+    margin-bottom: 0.1em;
+}
+
+/* ══════════════════════════════════════════════
+   Links
+   ══════════════════════════════════════════════ */
+#write a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(0, 105, 92, 0.4);
+    transition: color 0.2s, border-color 0.2s;
+}
+#write a:hover {
+    color: var(--link-hover-color);
+    border-bottom-style: solid;
+    border-bottom-color: var(--link-hover-color);
+}
+
+/* ══════════════════════════════════════════════
+   Strong & Emphasis — CV semantics
+   ══════════════════════════════════════════════ */
+/* Bold = Institution, Company, Journal name */
+#write strong {
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+/* Italic = Date ranges, locations */
+#write em {
+    font-style: italic;
+    color: #546e7a;
+}
+
+/* ══════════════════════════════════════════════
+   Inline Code — Skill Tags / Badges
+   Use `Python` `C++` `VASP` for skills
+   ══════════════════════════════════════════════ */
+#write code, tt {
+    font-family: var(--mono-font);
+    font-size: 0.78em;
+    background: var(--inline-code-bg);
+    color: var(--inline-code-color);
+    border: 1px solid rgba(0, 105, 92, 0.2);
+    border-radius: 10px;                /* Pill shape for skill tags */
+    padding: 1px 8px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* ══════════════════════════════════════════════
+   Code Blocks (rarely used in CV, but styled)
+   ══════════════════════════════════════════════ */
+.md-fences {
+    font-family: var(--mono-font) !important;
+    font-size: 0.82em;
+    background: var(--code-bg) !important;
+    border: 1px solid var(--code-border);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 0.8em 0;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+.md-fences code {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0;
+    padding: 0;
+    color: inherit;
+    font-size: 1em;
+}
+
+/* ══════════════════════════════════════════════
+   Blockquotes — Contact info / summary block
+   ══════════════════════════════════════════════ */
+#write blockquote {
+    margin: 0.3em 0 0.6em;
+    padding: 8px 16px;
+    background: var(--blockquote-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    color: #455a64;
+    font-size: 0.9em;
+    line-height: 1.45;
+}
+#write blockquote p {
+    margin-bottom: 0.2em;
+}
+#write blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ══════════════════════════════════════════════
+   Lists — Tight CV item lists
+   ══════════════════════════════════════════════ */
+#write ul, #write ol {
+    margin: 0.1em 0 0.3em;
+    padding-left: 1.5em;
+}
+#write li {
+    margin: 0.05em 0;
+    line-height: 1.4;
+}
+#write li::marker {
+    color: var(--accent);
+}
+
+/* Nested list tighter */
+#write li ul, #write li ol {
+    margin: 0.05em 0;
+}
+
+/* ══════════════════════════════════════════════
+   Tables — Clean academic grid
+   ══════════════════════════════════════════════ */
+#write table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.6em 0;
+    font-size: 0.88em;
+    border-top: 2px solid var(--heading-color);
+    border-bottom: 2px solid var(--heading-color);
+}
+#write thead {
+    border-bottom: 1px solid var(--heading-color);
+}
+#write th {
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 10px;
+    color: var(--heading-color);
+    font-family: var(--body-font);
+    font-size: 0.92em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+#write td {
+    padding: 5px 10px;
+}
+#write tbody tr:not(:last-child) {
+    border-bottom: 0.5px solid #eceff1;
+}
+
+/* ══════════════════════════════════════════════
+   Horizontal Rule — Elegant section divider
+   ══════════════════════════════════════════════ */
+#write hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--section-rule) 15%,
+        var(--accent) 50%,
+        var(--section-rule) 85%,
+        transparent
+    );
+    margin: 0.8em 0;
+}
+
+/* ══════════════════════════════════════════════
+   Images — Headshot / logos
+   ══════════════════════════════════════════════ */
+#write img {
+    max-width: 100%;
+    display: block;
+    margin: 0.8em auto;
+    border-radius: 4px;
+}
+
+/* ══════════════════════════════════════════════
+   Mathematics
+   ══════════════════════════════════════════════ */
+.MathJax_Display, .md-math-block {
+    margin: 0.6em 0 !important;
+}
+
+/* ══════════════════════════════════════════════
+   Footnotes
+   ══════════════════════════════════════════════ */
+sup.md-footnote {
+    font-size: 0.75em;
+    color: var(--accent);
+}
+.footnotes-area {
+    font-size: 0.82em;
+    border-top: 1px solid var(--section-rule);
+    margin-top: 1.5em;
+    padding-top: 0.6em;
+    color: #78909c;
+}
+
+/* ══════════════════════════════════════════════
+   YAML Front Matter
+   ══════════════════════════════════════════════ */
+pre.md-meta-block {
+    font-family: var(--mono-font);
+    font-size: 0.8em;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 1.2em;
+    color: #78909c;
+    line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════════
+   TOC
+   ══════════════════════════════════════════════ */
+.md-toc {
+    font-size: 0.88em;
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    background: var(--blockquote-bg);
+    padding: 12px 18px;
+    margin: 1em 0;
+}
+.md-toc-h1 { font-weight: 700; }
+.md-toc-h2 { font-weight: 600; }
+
+/* ══════════════════════════════════════════════
+   Highlight
+   ══════════════════════════════════════════════ */
+#write mark {
+    background: linear-gradient(120deg, #fff9c4 0%, #fff176 100%);
+    padding: 1px 4px;
+    border-radius: 2px;
+}
+
+/* ══════════════════════════════════════════════
+   Syntax Highlighting (CodeMirror)
+   ══════════════════════════════════════════════ */
+.cm-s-inner .cm-comment  { color: #90a4ae; font-style: italic; }
+.cm-s-inner .cm-keyword  { color: #00695c; font-weight: 600; }
+.cm-s-inner .cm-string   { color: #2e7d32; }
+.cm-s-inner .cm-number   { color: #bf360c; }
+.cm-s-inner .cm-variable { color: var(--text-color); }
+.cm-s-inner .cm-def      { color: #1565c0; font-weight: 500; }
+.cm-s-inner .cm-operator { color: #bf360c; }
+.cm-s-inner .cm-attribute{ color: #00695c; }
+.cm-s-inner .cm-tag      { color: #2e7d32; }
+.cm-s-inner .cm-bracket  { color: #78909c; }
+.cm-s-inner .cm-meta     { color: #90a4ae; }
+.cm-s-inner .cm-builtin  { color: #6a1b9a; }
+.cm-s-inner .cm-type     { color: #00695c; }
+.cm-s-inner .cm-atom     { color: #bf360c; }
+
+/* ══════════════════════════════════════════════
+   Sidebar
+   ══════════════════════════════════════════════ */
+.sidebar-content {
+    font-family: var(--body-font);
+    font-size: 0.88em;
+}
+.file-node-content { line-height: 1.5; }
+
+/* ══════════════════════════════════════════════
+   Scrollbar (WebKit)
+   ══════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #b0bec5; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #78909c; }
+
+/* ══════════════════════════════════════════════
+   Selection
+   ══════════════════════════════════════════════ */
+::selection { background: rgba(0, 105, 92, 0.15); }
+
+/* ══════════════════════════════════════════════
+   Focus Mode
+   ══════════════════════════════════════════════ */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #cfd8dc !important;
+}
+.on-focus-mode .md-end-block:not(.md-focus) img { opacity: 0.35; }
+
+/* ══════════════════════════════════════════════
+   Source Code Mode
+   ══════════════════════════════════════════════ */
+#typora-source .cm-s-inner {
+    font-family: var(--mono-font);
+    font-size: 0.85em;
+    line-height: 1.5;
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+/* ══════════════════════════════════════════════
+   Print / PDF Export — The Final Deliverable
+   ══════════════════════════════════════════════ */
+@media print {
+    html { font-size: 11pt; }
+    body { background: white; }
+    #write { max-width: 100%; padding: 0; }
+    #write h1 { page-break-before: avoid; margin-top: 0; }
+    #write h1:first-child { page-break-before: avoid; }
+    #write h1, #write h2, #write h3 { page-break-after: avoid; }
+    #write pre, #write table, #write img { page-break-inside: avoid; }
+
+    /* Ensure accent colors print */
+    #write h1::after,
+    #write h2::before,
+    #write code, tt,
+    #write blockquote {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* No URL printing — keeps layout clean */
+
+    /* Hide Typora UI elements */
+    .md-fences .code-tooltip { display: none; }
+}
+
+/* ══════════════════════════════════════════════
+   @page — PDF margin control
+   ══════════════════════════════════════════════ */
+@page {
+    margin: 1cm 1.5cm;
+    size: A4;
+}
