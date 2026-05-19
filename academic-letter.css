@@ -1,0 +1,245 @@
+/*
+ * Academic Letter — Typora Theme
+ * Clean, professional formatting for academic cover letters.
+ * Palatino / Times serif, left-aligned, generous margins.
+ */
+
+/* ========== PDF / Print Margins ========== */
+@media print {
+    @page {
+        margin: 2.5cm 2.5cm 2.5cm 2.5cm;
+        size: A4;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #write {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* Avoid page breaks inside paragraphs and lists */
+    p, li, blockquote {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+}
+
+/* ========== Root Variables ========== */
+:root {
+    --text-color: #1a1a1a;
+    --heading-color: #111111;
+    --link-color: #1a5276;
+    --border-color: #cccccc;
+    --bg-color: #ffffff;
+    --font-body: "Palatino Linotype", "Palatino", "Book Antiqua",
+                 "Georgia", "Times New Roman", serif;
+    --font-mono: "SF Mono", "Menlo", "Consolas", monospace;
+}
+
+/* ========== Body ========== */
+html {
+    font-size: 12pt;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background: var(--bg-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+#write {
+    max-width: 42em;
+    margin: 0 auto;
+    padding: 2em 4em;
+    text-align: justify;
+}
+
+/* ========== Headings ========== */
+
+/* H1: Used for "Cover Letter" title — keep subtle */
+h1 {
+    font-family: var(--font-body);
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--heading-color);
+    text-align: center;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* H2: Section headings — bold, normal case, no decoration */
+h2 {
+    font-family: var(--font-body);
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--heading-color);
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.15em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h3, h4, h5, h6 {
+    font-family: var(--font-body);
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--heading-color);
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
+}
+
+/* ========== Paragraphs ========== */
+p {
+    margin-top: 0.4em;
+    margin-bottom: 0.6em;
+    text-align: justify;
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+/* ========== Strong / Emphasis ========== */
+strong {
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+em {
+    font-style: italic;
+}
+
+/* ========== Links ========== */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media print {
+    a {
+        color: var(--link-color);
+        text-decoration: underline;
+    }
+}
+
+/* ========== Horizontal Rule (used as header separator) ========== */
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 0.8em 0;
+}
+
+/* ========== Lists ========== */
+ul, ol {
+    padding-left: 1.5em;
+    margin-top: 0.3em;
+    margin-bottom: 0.6em;
+}
+
+li {
+    margin-bottom: 0.3em;
+    line-height: 1.5;
+}
+
+/* ========== Inline Code / Code Blocks ========== */
+code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: #f5f5f5;
+    padding: 0.15em 0.35em;
+    border-radius: 3px;
+}
+
+pre {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0.8em 1em;
+    overflow-x: auto;
+}
+
+/* ========== Blockquote ========== */
+blockquote {
+    border-left: 3px solid var(--border-color);
+    padding-left: 1em;
+    margin-left: 0;
+    color: #555;
+    font-style: italic;
+}
+
+/* ========== Table ========== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 0.4em 0.8em;
+    text-align: left;
+}
+
+th {
+    background: #f5f5f5;
+    font-weight: 700;
+}
+
+/* ========== Subscript / Superscript (for chemical formulas) ========== */
+sub {
+    font-size: 0.75em;
+    vertical-align: sub;
+}
+
+sup {
+    font-size: 0.75em;
+    vertical-align: super;
+}
+
+/* ========== Typora-specific UI overrides ========== */
+.ty-preferences .window-content {
+    font-family: var(--font-body);
+}
+
+/* Sidebar styling */
+.sidebar-content {
+    font-family: var(--font-body);
+}
+
+/* Remove any theme-added decorations on headings */
+h1::before, h2::before, h3::before,
+h1::after, h2::after, h3::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Ensure no colored bars or gradients */
+h1, h2, h3 {
+    background: none !important;
+    background-image: none !important;
+}
